@@ -22,7 +22,6 @@ const routes: Routes = [
   },
   {
     path: 'images',
-    canActivate:[AuthguardGuard],
     component: ImageComponent 
   }
 ];

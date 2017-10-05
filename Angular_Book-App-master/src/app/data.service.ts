@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
-import {Product, Book, DelBook, Login} from './product';
+import {Product, Book, DelBook, Login, Image} from './product';
 
 @Injectable()
 export class DataService {
@@ -53,7 +53,11 @@ export class DataService {
     this.isUserLoggedIn= false;
   }
   getImageData(){
-    return this.http.get("/api/getImages")
+    return this.http.get("/api/getImages/")
     .map(result => this.images = result.json());
+  }
+  deleteImages(img: Image){
+    console.log(img);
+    return this.http.post("/api/deleteImages",img).subscribe();
   }
 }

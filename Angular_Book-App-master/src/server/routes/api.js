@@ -216,7 +216,25 @@ app.post('/addbook', (req, res) => {
     connection.end();
 });
 
-
+app.post('/deleteImages', (req, res) => {
+    
+     var name=req.body.name;
+     var id=req.body.id;
+     var mysql = require('mysql');
+     var connection = mysql.createConnection({
+         host:'localhost',
+         user:'root',
+         pass:'',
+         database:'bookapp'
+     });
+     connection.connect();
+     var sql="DELETE FROM `images` WHERE `Name`=?";
+     connection.query(sql,[name], function (err, rows, fields) {
+       if (err) throw err;   
+      console.log("success");
+     });
+     connection.end();   
+ });
 
 
 module.exports = app;

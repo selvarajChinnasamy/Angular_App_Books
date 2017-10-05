@@ -1,7 +1,11 @@
-<ul>
-  <li *ngFor="let i of products">
-    {{i.name}}
-    {{i.id}}
-  </li>
-</ul>
-<a href="http://localhost:3000/">Images/add</a>
+<div class="main">  
+    <a href="http://localhost:3000/"><div class="addbtn"> <img src="assets/add-image (1).png">   </div> </a>       
+<div class="container">    
+  <div class="total" *ngFor="let i of products;let j=index;"  >
+      <img class="img1" src="assets/{{i.name}}">
+      <div class="delet" (click)="deleteImages(i.name,i.id,j)">
+      <img src="assets/delete.png">
+  </div>
+  </div>
+  </div>
+  </div>
